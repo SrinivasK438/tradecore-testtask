@@ -1,8 +1,17 @@
+from django.contrib.auth import get_user_model
+
 from rest_framework import status
 from rest_framework import generics
+from rest_framework import permissions
 from rest_framework.response import Response
 
-from users.serializers import SignupSerializer
+from users.serializers import (
+    SignupSerializer,
+    UserSerializer
+)
+
+
+User = get_user_model()
 
 
 class SignupView(generics.CreateAPIView):
@@ -16,3 +25,13 @@ class SignupView(generics.CreateAPIView):
 
 
 signup_view = SignupView.as_view()
+
+
+class UserDetailView(generics.RetrieveAPIView):
+
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
+user_detail_view = UserDetailView.as_view()
