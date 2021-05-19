@@ -6,47 +6,47 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0001_initial'),
+        ("users", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='user',
-            name='username',
+            model_name="user",
+            name="username",
         ),
         migrations.AlterField(
-            model_name='user',
-            name='country',
+            model_name="user",
+            name="country",
             field=models.CharField(blank=True, max_length=50, null=True),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='country_code',
+            model_name="user",
+            name="country_code",
             field=models.CharField(blank=True, max_length=5, null=True),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='country_geoname_id',
+            model_name="user",
+            name="country_geoname_id",
             field=models.IntegerField(blank=True, null=True),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='email',
+            model_name="user",
+            name="email",
             field=models.EmailField(max_length=254, unique=True),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='ip_address',
+            model_name="user",
+            name="ip_address",
             field=models.GenericIPAddressField(blank=True, null=True),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='latitude',
+            model_name="user",
+            name="latitude",
             field=models.FloatField(blank=True, null=True),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='longitude',
+            model_name="user",
+            name="longitude",
             field=models.FloatField(blank=True, null=True),
         ),
     ]
