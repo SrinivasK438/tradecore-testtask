@@ -22,7 +22,10 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
 )
 
-from users.views import signup_view
+from users.views import (
+    signup_view,
+    user_detail_view
+)
 from posts.views import PostViewSet
 
 
@@ -32,6 +35,7 @@ router.register(r'posts', PostViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/', signup_view, name='signup'),
+    path('user/<int:pk>/', user_detail_view, name='user-detail'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('token/obtain/', TokenObtainPairView.as_view(), name='token_obtain'),
     path('', include(router.urls)),
