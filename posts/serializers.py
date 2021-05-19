@@ -8,6 +8,8 @@ class PostSerializer(serializers.ModelSerializer):
 
     author = UserSerializer(read_only=True)
 
+    likes = UserSerializer(read_only=True, many=True)
+
     class Meta:
         model = Post
         fields = (
@@ -15,6 +17,7 @@ class PostSerializer(serializers.ModelSerializer):
             'title',
             'content',
             'posted_on',
+            'likes',
         )
         extra_kwargs = {
             'posted_on': {
