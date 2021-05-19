@@ -20,13 +20,13 @@ class PostViewSet(viewsets.ModelViewSet):
     @action(detail=True)
     def like(self, request, pk):
         post = self.get_object()
-        post.like.add(request.user)
+        post.likes.add(request.user)
 
         return Response(status=status.HTTP_200_OK)
 
     @action(detail=True)
     def unlike(self, request, pk):
         post = self.get_object()
-        post.like.remove(request.user)
+        post.likes.remove(request.user)
 
         return Response(status=status.HTTP_200_OK)
