@@ -21,7 +21,7 @@ class Post(models.Model):
         auto_now_add=True,
     )
 
-    like = models.ManyToManyField(
+    likes = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
         related_name='liked_posts',
         blank=True,
