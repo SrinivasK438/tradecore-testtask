@@ -25,14 +25,14 @@ class AbstractAPI(object):
                 time.sleep(5)
         return None
 
-    def get_holiday_details(self, country, year, month, day):
+    def get_holiday_details(self, country_code, year, month, day):
         url = 'https://holidays.abstractapi.com/v1/'
         return self._get(
             url=url,
             day=day,
             year=year,
             month=month,
-            country=country,
+            country=country_code,
             api_key=self.HOLIDAYS_API_KEY,
         )
 
