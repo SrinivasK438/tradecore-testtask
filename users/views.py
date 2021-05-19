@@ -1,9 +1,7 @@
 from django.contrib.auth import get_user_model
 
-from rest_framework import status
 from rest_framework import generics
 from rest_framework import permissions
-from rest_framework.response import Response
 
 from users.serializers import SignupSerializer, UserSerializer
 
