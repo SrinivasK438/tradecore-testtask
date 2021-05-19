@@ -8,12 +8,10 @@ class Post(models.Model):
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        related_name='posts',
+        related_name="posts",
     )
 
-    title = models.CharField(
-        max_length=150
-    )
+    title = models.CharField(max_length=150)
 
     content = models.TextField()
 
@@ -23,7 +21,7 @@ class Post(models.Model):
 
     likes = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
-        related_name='liked_posts',
+        related_name="liked_posts",
         blank=True,
     )
 
