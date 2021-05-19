@@ -2,6 +2,8 @@ from rest_framework import serializers
 
 from django.contrib.auth import get_user_model
 
+from users.tasks import enrich_user
+
 
 User = get_user_model()
 
@@ -50,6 +52,7 @@ class SignupSerializer(serializers.ModelSerializer):
             last_name=validated_data['last_name'],
             ip_address=validated_data['ip_address'],
         )
+        enrich_user.delay(user.pk)
 
         return user
 
