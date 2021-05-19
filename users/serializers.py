@@ -29,6 +29,9 @@ class SignupSerializer(serializers.ModelSerializer):
             'last_name': {
                 'required': True
             },
+            'password': {
+                'write_only': True
+            },
         }
 
     def validate(self, attrs):
@@ -45,7 +48,7 @@ class SignupSerializer(serializers.ModelSerializer):
             password=validated_data['password'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
-            ip_address=self.initial_data['ip_address'],
+            ip_address=validated_data['ip_address'],
         )
 
         return user
