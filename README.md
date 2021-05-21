@@ -101,3 +101,9 @@ Method: `GET`
 #####    /posts/{id}/unlike
 Authentication Required
 Method: `GET`
+
+
+## Running Tests
+```
+CELERY_ALWAYS_EAGER=True IP_GEOLOCATION_API_KEY=XXXX HOLIDAYS_API_KEY=XXXX python manage.py test
+```
